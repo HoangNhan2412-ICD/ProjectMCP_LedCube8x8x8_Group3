@@ -43,15 +43,22 @@ The physical integrity of the cube dictates the visual quality of the animations
 * **The Matrix Assembly:** We stripped, straightened, and tensioned 20-gauge copper wire to serve as both structural scaffolding and the electrical bus. We soldered the cube layer by layer into 8 horizontal planes (common cathodes).
 * **3D Integration:** Stacking the 8 layers vertically required meticulous measurement. We used 22mm spacers to solder the 64 vertical columns (common anodes), ensuring a geometrically flawless cube.
 
+![Preparing the MDF Frame] <img width="828" height="402" alt="image" src="https://github.com/user-attachments/assets/a1ce56ee-d33e-43b4-a103-892a7055f016" />
+
 ### Phase 2: Hardware Architecture
 A standard microcontroller cannot drive 512 discrete channels simultaneously. We engineered a multiplexed control board to solve this IO bottleneck.
 * **Shift Register Array:** We designed a circuit utilizing nine 74HC595 8-bit Shift Registers. Eight of these control the 64 vertical anode columns. The ninth acts as the sink for the 8 horizontal cathode layers, paired with a high-current array of PN2222A NPN Transistors.
 * **Cable Routing:** We employed modular 10-pin ribbon cables to bridge the LED matrix to the PCB. They ensure signal integrity and allow the hardware to be easily disassembled for debugging.
 
+<img width="639" height="556" alt="image" src="https://github.com/user-attachments/assets/b23eb973-3c05-46b3-ac99-6e5c2b1caf56" />
+
 ### Phase 3: Firmware Architecture
 The final phase involved writing the embedded C++ firmware to translate abstract 3D coordinates into physical electrical signals.
 * **Coordinate Mapping:** We wrote drivers that mapped the physical X, Y, and Z axes to a multi-dimensional array in the microcontroller's memory.
 * **Animation Engine:** We developed functions to draw geometric primitives (lines, boxes, spheres) and created state machines to handle complex frame-by-frame animations.
+
+![PCB Assembly] <img width="895" height="369" alt="image" src="https://github.com/user-attachments/assets/dda1a391-cb12-4005-b307-fe1dbc843d15" />
+
 
 ---
 
